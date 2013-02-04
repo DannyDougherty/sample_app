@@ -9,7 +9,7 @@ group :development do
 	gem 'autotest-rails-pure'
 	gem "autotest-growl"
 	gem "autotest-fsevent"
-	gem 'spork-rails'
+	gem 'spork'
 end
 
 group :test do
