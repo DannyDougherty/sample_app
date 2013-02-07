@@ -9,4 +9,9 @@ module ApplicationHelper
 			"#{base_title} | #{@title}"
 		end
 	end
+	
+	#Define a generic function for placing the sample app logo within the app
+	def logo
+		image_tag("logo.png", :alt => "Sample App", :class => "round")
+	end
 end

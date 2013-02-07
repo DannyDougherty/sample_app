@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 
 group :development do
-	gem 'rspec-rails', '2.0.1'
+	gem 'rspec-rails'
+	gem 'annotate'
 	gem 'sqlite3'
 	gem 'autotest-standalone'
 	gem 'autotest-rails-pure'
@@ -13,6 +14,6 @@ group :development do
 end
 
 group :test do
-	gem 'rspec', '2.0.1'
+	gem 'rspec'
 	gem 'webrat', '0.7.1'
 end
