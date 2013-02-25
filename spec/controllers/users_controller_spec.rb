@@ -45,4 +45,32 @@ describe UsersController do
 			response.should have_selector('title', :content => "Ruby on Rails Tutorial Sample App | Sign up")
 		end
 	end
+	
+	describe "POST create" do
+		describe "failure" do
+			before(:each) do
+				@attr = { :name => "", :email => "", :password => "", :password_confirmation => "" }
+			end
+			
+			it "should create a user" do
+				lambda do
+					post :create, :user => @attr
+				end.should_not change(User, :count)
+			end
+			
+			it "should have the right title" do
+				lambda do
+					post :create, :user => @attr
+				end
+				response.should have_selector("title", :content => "Sign up")
+			end
+			
+			it "should render the 'new' page" do
+				lambda do
+					post :create, :user => @attr
+				end
+				response.should render_template('new')
+			end
+		end
+	end
 end
