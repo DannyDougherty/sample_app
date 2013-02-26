@@ -57,19 +57,17 @@ describe UsersController do
 					post :create, :user => @attr
 				end.should_not change(User, :count)
 			end
-			
-			it "should have the right title" do
-				lambda do
-					post :create, :user => @attr
-				end
-				response.should have_selector("title", :content => "Sign up")
+		end
+		
+		describe "success" do
+			before(:each) do
+				@attr = { :name => "New User", :email => "user@example.com", :password => "foobar", :password_confirmation => "foobar" }
 			end
 			
-			it "should render the 'new' page" do
+			it "should create a user" do
 				lambda do
 					post :create, :user => @attr
-				end
-				response.should render_template('new')
+				end.should change(User, :count).by(1)
 			end
 		end
 	end
