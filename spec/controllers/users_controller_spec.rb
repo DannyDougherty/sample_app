@@ -69,6 +69,11 @@ describe UsersController do
 					post :create, :user => @attr
 				end.should change(User, :count).by(1)
 			end
+			
+			it "should have a welcome message" do
+				post :create, :user => @attr
+				flash[:success].should =~ /welcome to the sample app/i
+			end
 		end
 	end
 end
