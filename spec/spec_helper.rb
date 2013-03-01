@@ -12,6 +12,14 @@ Spork.prefork do
   	controller.sign_in(user)
   end
   
+  def integration_sign_in
+  	user = Factory(:user)
+  	visit signin_path
+  	fill_in :email,		:with => user.email
+  	fill_in :password,	:with => user.password
+  	click_button
+  end
+  
   # This file is copied to spec/ when you run 'rails generate rspec:install'
 	ENV["RAILS_ENV"] ||= 'test'
 	require File.expand_path("../../config/environment", __FILE__)
