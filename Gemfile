@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'gravatar_image_tag'
+gem 'will_paginate'
 
 group :development do
 	gem 'rspec-rails'
@@ -12,6 +13,7 @@ group :development do
 	gem "autotest-growl"
 	gem "autotest-fsevent"
 	gem 'spork'
+	gem 'faker'
 end
 
 group :test do
